@@ -38,3 +38,11 @@ for i in range(epochs):
 
 print("Final weight:", weight)
 print("Final bias:", bias)
+
+user_input = int(input("Enter the sqft"))
+sqft = np.array(user_input)
+sqft_norm = (sqft - X_mean) / X_std
+predicted_norm = weight * sqft_norm + bias
+predicted_price = (predicted_norm * y_std) + y_mean
+
+print(predicted_price)
